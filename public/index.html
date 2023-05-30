@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style>
+      .container {
+        padding: 8px;
+      }
+      #title {
+        width: 100%;
+      }
+      #body {
+        width: 100%;
+        height: 80vh;
+      }
+      #register {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="title"></input>
+    </div>
+    <div class="container">
+      <textarea id="body">
+      </textarea>
+    </div>
+    <div class="container">
+      <button id="register">Register</button>
+    </div>
+    <script>
+      const title = document.getElementById("title")
+      title.value = window.localStorage.getItem('title') ?? ''
+      title.addEventListener('change', (event) => {
+        window.localStorage.setItem('title', event.target.value)
+      })
+      const body = document.getElementById("body")
+      body.value = window.localStorage.getItem('body') ?? ''
+      body.addEventListener('change', (event) => {
+        window.localStorage.setItem('body', event.target.value)
+      })
+    </script>
+  </body>
+</html>
